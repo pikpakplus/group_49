@@ -19,6 +19,8 @@
 #
 # for number in range(1, 21):
 #     answer = int(input(f'студент под номером №{number}: '))
+
+
 #     if answer == 1:
 #         in_lesson += 1
 #     else:
@@ -32,8 +34,7 @@
 
 
 
-ф
-
+]\
 
 
 

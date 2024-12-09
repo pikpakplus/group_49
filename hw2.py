@@ -12,6 +12,7 @@ class Square(Figure):
         super().__init__()
         self.__length = __length
     def calculate_area(self):
+
         return self.__length ** 2
     def info(self):
         return f"Square radius: {self.__length}{self.unit}, area: {self.calculate_area()}{self.unit}"
