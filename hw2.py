@@ -8,7 +8,7 @@ class Figure:
     def info(self):
         pass
 class Square(Figure):
-    def __init__(self, __length):
+    def __init__(self, __length)
         super().__init__()
         self.__length = __length
     def calculate_area(self):
@@ -49,3 +49,4 @@ if __name__ == "__main__":
 print("Hello world!")
 
 print("Updated from main")
+

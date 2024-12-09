@@ -1,0 +1,98 @@
+class Computer:
+    def _init_(self, cpu, memory):
+        self.cpu = cpu
+        self.__memory = memory
+
+    @property
+    def cpu(self):
+        return self.__cpu
+
+    @cpu.setter
+    def cpu(self, value):
+        self.__cpu = value
+
+    @property
+    def memory(self):
+        return self.__memory
+
+    @memory.setter
+    def memory(self, value):
+        self.__memory = value
+
+    def make_computations(self):
+        return self.cpu * self.memory
+
+    def _str_(self):
+        return f'Computer (cpu={self.cpu}, memory={self.memory})'
+
+    def eq(self, other):
+        return self.memory == other.memory
+
+    def ne(self, other):
+        return self.memory != other.memory
+
+    def lt(self, other):
+        return self.memory < other.memory
+
+    def le(self, other):
+        return self.memory <= other.memory
+
+    def gt(self, other):
+        return self.memory > other.memory
+
+    def ge(self, other):
+        return self.memory >= other.memory
+
+
+class Phone:
+    def _init_(self, sim_cards_list):
+        self.__sim_cards_list = sim_cards_list
+
+    @property
+    def sim_cards_list(self):
+        return self.__sim_cards_list
+
+    @sim_cards_list.setter
+    def sim_cards_list(self, value):
+        self.__sim_cards_list = value
+
+    def call(self, sim_card_number, call_to_number):
+        if 0 <= sim_card_number < len(self.__sim_cards_list):
+            sim_card = self.__sim_cards_list[sim_card_number]
+            print(f'Звонок идет на номер {call_to_number} с сим-карты-{sim_card_number + 1} ({sim_card})')
+        else:
+            print('Неверный номер сим-карты')
+
+    def _str_(self):
+        return f'Phone (sim_cards_list={self.sim_cards_list})'
+
+
+class SmartPhone(Computer, Phone):
+    def _init_(self,cpu, memory, __sim_cards_list):
+        Computer.init(self,cpu, memory)
+        Phone.init(self, __sim_cards_list)
+    def use_gps(self, location):
+        print(f'Маршрут построен до {location}')
+
+    def _str_(self):
+        return f'SmartPhone (cpu={self.cpu}, memory={self.memory}, sim_cards_list={self.sim_cards_list})'
+
+computer = Computer(4, 16)
+phone = Phone(["Beeline", "MegaCom", "O!"])
+smartphone1 = SmartPhone(8, 32, ["Beeline", "O!"])
+smartphone2 = SmartPhone(16, 64, ["MegaCom", "O!"])
+
+print(computer)
+print(phone)
+print(smartphone1)
+print(smartphone2)
+
+
+print(computer.make_computations())
+phone.call(0, "+996 777 99 88 11")
+
+smartphone1.use_gps("Кок-Жайык")
+smartphone2.use_gps("Бишкек")
+
+print(computer == smartphone1)
+print(computer
